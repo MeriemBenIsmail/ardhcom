@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+    color: #fff;
+}
+.navbar .logo h1{
+    font-weight: 800;
+    font-size: 40px;
+}
+.navbar .links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar .links .link {
+    margin: 0 20px;
+}
