@@ -1,55 +1,100 @@
 .hero {
-    background: url('../../assets/rre.jpg') no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    animation: backAn 150s infinite;
-  
+  background: url("../../assets/rre.jpg") no-repeat;
+  background-size: cover;
+padding-bottom: 50px;
+  width: 100%;
+  margin: 0;
+  animation: backAn 150s infinite;
+  overflow-x: hidden;
 }
 @keyframes backAn {
-    0%   { background-position:0% 100%; }
-    50%   { background-position:100% 100%; }
-    100%   { background-position:0% 100%; }
- }
- .introduction {
-    float: right;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    margin-right: 80px;
-    text-align: end;
+  0% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+.introduction {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: -30px;
+  margin-right: 80px;
+}
+.search {
+  margin-right: 0;
+  width: 70%;
+}
+.first h1 {
+  font-size: 70px;
+}
+.first {
+  display: flex;
+  font-size: 36px;
+}
+.introduction h3 {
+  font-size: 28px;
+  margin-bottom: -30px;
+}
+.introduction h5 {
+  font-size: 15px;
+  font-weight: 500;
+}
+.decorH1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-right: 10px;
+}
+.decorH1 .line {
+  width: 100px;
+  margin-top: -70px;
+}
+@media screen and (max-width: 800px) {
+.search {
+   margin-right: 0;
+   width: 95%;
+ }}
+@media screen and (max-width: 660px) {
+  .first h1 {
+    font-size: 55px;
+  }
+  .decorH1 .line {
+    width: 5px;
+    margin-top: -60px;
    
- }
- .first {
-    display: flex;
-    font-size: 36px;
-    margin: 0;
-  
-   margin-bottom: -50px;
-   
- }
- .introduction h3 {
-    font-size: 28px;
-    margin-bottom: -30px;
-    
- }
- .introduction h5 {
-    font-size: 15px;
-    font-weight: 500;
- 
-    
- }
- .decorH1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
 
- }
- .decorH1 .line {
-    width: 100px;
-    margin-top: -70px;
- }
+  }
+  .introduction {
+    margin-right: 50px;
+  }
+ 
+}
+@media screen and (max-width: 450px) {
+  .first h1 {
+    font-size: 48px;
+  }
+  .decorH1 .line {
+    width: 10px;
+    margin-top: -50px;
+  }
+  .introduction {
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .first h1 {
+    font-size: 35px;
+  }
+  .decorH1 .line {
+    display: none;
+  }
+  .introduction {
+   margin-right: 30px;
+  }
+}
