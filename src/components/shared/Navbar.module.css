@@ -4,6 +4,7 @@
     align-items: center;
     padding: 10px 100px;
     color: #fff;
+    overflow-x: hidden;
 }
 .navbar .logo .img {
     width: 60px;
@@ -37,6 +38,14 @@
 }
 .navbar .links .link {
     margin: 0 20px;
+}
+.navbar .links .link a {
+    text-decoration: none;
+    color: inherit;
+}
+.navbar .links .link:hover {
+    color: #FFAE13;
+    cursor: pointer;
 }
 @media screen and (max-width:1060px) {
     .navbar .links {

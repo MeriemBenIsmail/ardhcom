@@ -32,10 +32,10 @@ export default function Navbar() {
       </div>
       <ul className={classes.links}>
         <li className={classes.link}>إستقبال</li>
-        <li className={classes.link}>خدمات</li>
-        <li className={classes.link}>أخبار</li>
-        <li className={classes.link}>أحنا شكون؟</li>
-        <li className={classes.link}>إتّصل بنا</li>
+        <li className={classes.link}><a href="#services">خدمات</a></li>
+        <li className={classes.link}><a href="#news">أخبار</a></li>
+        <li className={classes.link}><a href="#whoarewe">أحنا شكون؟</a></li>
+        <li className={classes.link}><a href="#contact">إتّصل بنا</a></li>
         <li className={classes.link}>تسجيل دخول</li>
         <li className={classes.btn}>
           <Button content="  إشتراك" color="#FFAE13"></Button>
