@@ -4,6 +4,7 @@ import classes from "./WhoAreWe.module.css";
 import deco from "../../assets/fgf.png";
 import icon1 from "../../assets/male-farmer.svg";
 import icon2 from "../../assets/partnership.svg";
+import "./loader.css";
 export default function WhoAreWe() {
   return (
     <div className={classes.whoarewe} id="whoarewe">
@@ -16,11 +17,11 @@ export default function WhoAreWe() {
         </div>
         <div className={classes.descr}>
           <p>
-            أوّل موقع تونسي خاصّ بالفلاحةأوّل موقع تونسي خاصّ بالفلاحةأوّل موقع
-            تونسي خاصّ بالفلاحةأوّل موقع تونسي خاصّ بالفلاحةأوّل موقع تونسي خاصّ
-            بالفلاحةأوّ أوّل موقع تونسي خاصّ بالفلاحة ل موقع تونسي خاصّ بالفلاحة
-            أوّل موقع تونسي خاصّ بالفلاحة وّل موقع تونسي خاصّ بالفلاحةوّل موقع
-            تونسي خاصّ بالفلاحة
+            أحنا طلبة من المعهد العالي للعلوم التطبيقية والتكنولوجيا. هدفنا هو
+            تطوير الفلاحة في تونس لمدى تأثيرها على تطور البلاد و تحقيق الأمن
+            الغذائي. نؤمنو إلي العالم اليوم عالم تكنولوجي بالاساس ونؤمن بقيمة
+            التكنولوجيا في خدمة كل المجالات وبالأخص مجال الفلاحة. هاذاكا علاش
+            اليوم ابتكرنا مشروع ارضكم. اختاروا ارضكم لمستقبل مثمر.
           </p>
         </div>
 
@@ -30,8 +31,12 @@ export default function WhoAreWe() {
               <img src={icon1} alt="" />
             </div>
             <div className={classes.txt}>
-              <h1>5000</h1>
-              <p>وّل موقع تونسي خاصّ بالفلاحةوّل</p>
+              <div class="load-3">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <p>فلاّح في ارضكم</p>
             </div>
           </div>
           <div className={classes.item}>
@@ -39,8 +44,8 @@ export default function WhoAreWe() {
               <img src={icon2} alt="" />
             </div>
             <div className={classes.txt}>
-              <h1>5000</h1>
-              <p>وّل موقع تونسي خاصّ بالفلاحةوّل</p>
+              <h1>120</h1>
+              <p>مزوّد خدمات</p>
             </div>
           </div>
         </div>
