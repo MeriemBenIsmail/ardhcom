@@ -39,7 +39,7 @@ export default function Hero() {
     }
   }, [inView]);
   return (
-    <div ref={ref} className={classes.hero}>
+    <div id="accueil" ref={ref} className={classes.hero}>
     <Navbar></Navbar>
 
       <div>
