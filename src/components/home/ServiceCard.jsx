@@ -6,7 +6,7 @@ export default function ServiceCard({ title, descr, img }) {
     <div className={classes.card}>
       <div className={classes.info}>
         <h1>{title}</h1>
-        <p>{descr}</p>
+       
       </div>
 
 

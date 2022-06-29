@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Partners.module.css";
-import partner from "../../assets/batata.jpg";
+import partner from "../../assets/male-farmer.svg";
 import PartnerCard from "./PartnerCard";
 export default function Partners() {
   const partners = [
@@ -10,6 +10,9 @@ export default function Partners() {
     "partner4",
     "partner5",
     "partner6",
+    "partner7",
+    "partner8",
+    "partner9",
   ];
   return (
     <div className={classes.slider}>
@@ -18,12 +21,14 @@ export default function Partners() {
         style={{ width: `calc(400px * ${partners.length})` }}
       >
         {partners.map((item, index) => (
-          <PartnerCard photo={partner}></PartnerCard>
+          <div className={classes.slide}><PartnerCard photo={partner}></PartnerCard></div>
+          
         ))}
 
         {partners.map((item, index) => (
-          <PartnerCard photo={partner}></PartnerCard>
+          <div className={classes.slide}><PartnerCard photo={partner}></PartnerCard></div>
         ))}
+        
       </div>
     </div>
   );
