@@ -4,6 +4,7 @@ import classes from "./WhoAreWe.module.css";
 import deco from "../../assets/fgf.png";
 import icon1 from "../../assets/male-farmer.svg";
 import icon2 from "../../assets/partnership.svg";
+import "./loader.css";
 export default function WhoAreWe() {
   return (
     <div className={classes.whoarewe} id="whoarewe">
@@ -30,8 +31,12 @@ export default function WhoAreWe() {
               <img src={icon1} alt="" />
             </div>
             <div className={classes.txt}>
-              <h1>5000</h1>
-              <p>وّل موقع تونسي خاصّ بالفلاحةوّل</p>
+              <div class="load-3">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <p>فلاّح في ارضكم</p>
             </div>
           </div>
           <div className={classes.item}>
@@ -39,8 +44,8 @@ export default function WhoAreWe() {
               <img src={icon2} alt="" />
             </div>
             <div className={classes.txt}>
-              <h1>420</h1>
-              <p>وّل موقع تونسي خاصّ بالفلاحةوّل</p>
+              <h1>120</h1>
+              <p>مزوّد خدمات</p>
             </div>
           </div>
         </div>
