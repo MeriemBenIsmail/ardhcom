@@ -5,6 +5,13 @@ import fb from "../../assets/facebook.svg";
 import insta from "../../assets/instagram.svg";
 import twitter from "../../assets/twitter.svg";
 export default function Footer() {
+  
+  const handleFb = () => {
+    window.location.href = "https://www.facebook.com/enactusinsat";
+  }
+  const handleInsta = () => {
+    window.location.href = "https://www.instagram.com/enactusinsat/";
+  }
   return (
     <div className={classes.footer} id="contact">
       <div className={classes.first}>
@@ -47,10 +54,10 @@ export default function Footer() {
         <h3>555 722 43</h3>
         <div className={classes.socials}>
           <div className={classes.img}>
-            <img src={fb} alt="" />
+            <img src={fb} onClick={handleFb} alt="" />
           </div>
           <div className={classes.img}>
-            <img src={insta} alt="" />
+            <img src={insta} onClick={handleInsta} alt="" />
           </div>
           <div className={classes.img}>
             <img src={twitter} alt="" />
