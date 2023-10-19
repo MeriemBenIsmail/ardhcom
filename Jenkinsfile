@@ -18,6 +18,8 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 echo "push to docker hub"
+                sh "docker login -u meriem1219 -p spn123456789
+
                 sh "docker tag ardhcom-app meriem1219/ardhcom"
                 sh "docker push meriem1219/ardhcom"
             }
