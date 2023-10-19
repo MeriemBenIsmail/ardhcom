@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Pull from GitHub') {
             steps {
-                git 'https://github.com/MeriemBenIsmail/ardhcom'
+                git url: 'https://github.com/MeriemBenIsmail/ardhcom', branch: 'main'
+                
             }
         }
         stage('Build Image') {
