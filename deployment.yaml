@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-ardhcom
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ardhcom
+  template:
+    metadata:
+      labels:
+        app: ardhcom
+    spec:
+      containers:
+        - name: container-ardhcom
+          image: meriem1219/ardhcom
+          ports:
+            - containerPort: 80

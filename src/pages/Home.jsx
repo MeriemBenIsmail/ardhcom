@@ -8,6 +8,7 @@ import Video from "../components/home/Video";
 import WhoAreWe from "../components/home/WhoAreWe";
 import Footer from "../components/shared/Footer";
 export default function Home() {
+  console.log('Hi Fluentd')
   return (
     <div style={{overflowX:"hidden",overflowY:"hidden"}}>
       <Hero></Hero>
