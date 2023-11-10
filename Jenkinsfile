@@ -36,14 +36,11 @@ pipeline {
                 steps {
                     script {
                         withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
-                            def kubeConfigPath = "C:\Users\meriem\.kube\config"
-                            env.KUBECONFIG = kubeConfigPath
                             echo "======== executing ========"
                             try {
                                 sh "env"
                                 
-                                echo "KUBECONFIG path: \$KUBECONFIG"
-                                echo "KUBECONFIG path: \$KUBECONFIG"
+                               
                                 sh "kubectl cluster-info"
                                 sh "kubectl version"
                                 sh "kubectl apply -f deployment.yaml"
