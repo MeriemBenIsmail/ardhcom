@@ -69,27 +69,6 @@ pipeline {
         }
     }
       
-        stage('creation des services') {
-            steps {
-                script {
-                    withCredentials([file(credentialsId: 'kube_credentials')]) {
-                        echo "*** executing ***"
-                        sh "kubectl apply -f service.yaml"
-                        sh "kubectl get services"
-                    }
-                }
-            }
-        }
-        stage('creation des loadbalancer') {
-            steps {
-                script {
-                    withCredentials([file(credentialsId: 'kube_credentials')]) {
-                        echo "*** executing ***"
-                        sh "kubectl apply -f loadBalancer.yaml"
-                        sh "kubectl get services"
-                    }
-                }
-            }
-        }
+      
     
 }
