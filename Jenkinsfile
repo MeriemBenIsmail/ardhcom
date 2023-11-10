@@ -35,20 +35,18 @@ pipeline {
         stage('Deploy to Kubernetes') {
                 steps {
                     script {
-                        withCredentials([file(credentialsId: 'kube_credentials')]) {
-                            echo "======== executing ========"
-                            try {
-                                sh "env"
-                                
-                               
-                                sh "kubectl cluster-info"
-                                sh "kubectl version"
-                                sh "kubectl apply -f deployment.yaml"
-                            } catch (Exception e) {
-                                error "Error executing kubectl command: ${e.getMessage()}"
-                            }
+                        def kubeConfigPath = "C:\\Users\\meriem\\.kube\\config"
+                        env.KUBECONFIG = kubeConfigPath
+                        echo "KUBECONFIG path: \$KUBECONFIG"
+                        
+                        try {
+                            sh "kubectl version"
+                            sh "kubectl apply -f deployment.yaml"  // Update with your actual deployment file
+                        } catch (Exception e) {
+                            error "Error executing kubectl command: ${e.getMessage()}"
                         }
                     }
+
                 }
         }
     }
