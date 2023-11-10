@@ -33,43 +33,41 @@ pipeline {
             }
         }
         stage('Deploy to Kubernetes') {
+                steps {
+                    script {
+                        withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
+                            echo "======== executing ========"
+                            try {
+                                sh "kubectl --kubeconfig=\$KUBECONFIG version"
+                                sh "kubectl --kubeconfig=\$KUBECONFIG apply -f deployment.yaml"
+                            } catch (Exception e) {
+                                error "Error executing kubectl command: ${e.getMessage()}"
+                            }
+                        }
+                    }
+                }
+        }
+    }
+      
+        /*stage('creation des services') {
             steps {
                 script {
                     withCredentials([file(credentialsId: 'kube_credentials')]) {
-                        echo "======== executing ========"
-                        sh "kubectl"
-                        sh "kubectl apply -f deployment.yaml"
-                   
+                        echo "*** executing ***"
+                        sh "kubectl apply -f service.yaml"
+                        sh "kubectl get services"
                     }
-                }
-            }
-        }
-    }
-      /*  stage('creationg des pods') {
-            steps {
-                script {
-                    echo "*** executing ***"
-                    sh "kubectl apply -f deployment.yaml"
-                    sh "kubectl get pods"
-                    sh "kubectl get deployments"
-                }
-            }
-        }
-        stage('creation des services') {
-            steps {
-                script {
-                    echo "*** executing ***"
-                    sh "kubectl apply -f service.yaml"
-                    sh "kubectl get services"
                 }
             }
         }
         stage('creation des loadbalancer') {
             steps {
                 script {
-                    echo "*** executing ***"
-                    sh "kubectl apply -f loadBalancer.yaml"
-                    sh "kubectl get services"
+                    withCredentials([file(credentialsId: 'kube_credentials')]) {
+                        echo "*** executing ***"
+                        sh "kubectl apply -f loadBalancer.yaml"
+                        sh "kubectl get services"
+                    }
                 }
             }
         }*/
