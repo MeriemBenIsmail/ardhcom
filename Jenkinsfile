@@ -30,6 +30,14 @@ pipeline {
                 sh "kubectl"
             }
         }
+        stage("verification de kubectl") {
+            steps {
+                withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
+                    echo "======== executing ========"
+                    sh "kubectl"
+                }
+            }
+        }
         stage('creationg des pods') {
             steps {
                 script {
