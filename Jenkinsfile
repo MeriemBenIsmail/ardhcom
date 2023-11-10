@@ -35,7 +35,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
                 steps {
                     script {
-                        withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
+                        withCredentials([file(credentialsId: 'kube_credentials')]) {
                             echo "======== executing ========"
                             try {
                                 sh "env"
