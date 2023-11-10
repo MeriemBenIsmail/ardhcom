@@ -41,7 +41,7 @@ pipeline {
                         
                         try {
                             sh "kubectl version"
-                            sh "kubectl apply -f deployment.yaml"  // Update with your actual deployment file
+                            sh "kubectl apply -f deployment.yaml"  
                         } catch (Exception e) {
                             error "Error executing kubectl command: ${e.getMessage()}"
                         }
@@ -49,9 +49,27 @@ pipeline {
 
                 }
         }
+        stage('creation des services') {
+            steps {
+                script {
+                    def kubeConfigPath = "C:\\Users\\meriem\\.kube\\config"
+                        env.KUBECONFIG = kubeConfigPath
+                        echo "KUBECONFIG path: \$KUBECONFIG"
+                        
+                        try {
+                             echo "*** executing ***"
+                             sh "kubectl apply -f service.yaml"
+                             sh "kubectl get services"
+                        } catch (Exception e) {
+                            error "Error executing kubectl command: ${e.getMessage()}"
+                        }
+                   
+                }
+            }
+        }
     }
       
-        /*stage('creation des services') {
+        stage('creation des services') {
             steps {
                 script {
                     withCredentials([file(credentialsId: 'kube_credentials')]) {
@@ -72,6 +90,6 @@ pipeline {
                     }
                 }
             }
-        }*/
+        }
     
 }
