@@ -38,6 +38,7 @@ pipeline {
                         withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
                             echo "======== executing ========"
                             try {
+                                echo "KUBECONFIG path: \$KUBECONFIG"
                                 sh "kubectl cluster-info"
                                 sh "kubectl version"
                                 sh "kubectl apply -f deployment.yaml"
