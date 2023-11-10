@@ -7,7 +7,7 @@ pipeline {
                 
             }
         }
-        /*stage('Build Image') {
+        stage('Build Image') {
             steps {
                 script {
                     echo "building the image"
@@ -23,7 +23,7 @@ pipeline {
                 sh "docker tag ardhcom-app meriem1219/ardhcom"
                 sh "docker push meriem1219/ardhcom"
             }
-        }*/
+        }
         stage("verification de kubectl") {
             steps {
                 withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
