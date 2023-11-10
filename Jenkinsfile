@@ -38,8 +38,8 @@ pipeline {
                     withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
                         echo "======== executing ========"
                         sh "kubectl"
-                        def kubectlCmd = "kubectl apply -f deployment.yaml --kubeconfig=\$KUBECONFIG"
-                        sh kubectlCmd
+                        sh "kubectl apply -f deployment.yaml"
+                   
                     }
                 }
             }
