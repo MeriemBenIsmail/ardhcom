@@ -38,7 +38,21 @@ pipeline {
                 }
             }
         }
-        stage('creationg des pods') {
+        stages {
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
+                        echo "======== executing ========"
+                        sh "kubectl"
+                        def kubectlCmd = "kubectl apply -f deployment.yaml --kubeconfig=\$KUBECONFIG"
+                        sh kubectlCmd
+                    }
+                }
+            }
+        }
+    }
+      /*  stage('creationg des pods') {
             steps {
                 script {
                     echo "*** executing ***"
@@ -65,6 +79,6 @@ pipeline {
                     sh "kubectl get services"
                 }
             }
-        }
+        }*/
     }
 }
