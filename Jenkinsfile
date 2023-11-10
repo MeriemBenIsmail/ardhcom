@@ -24,12 +24,6 @@ pipeline {
                 sh "docker push meriem1219/ardhcom"
             }
         }*/
-        stage('Kubernetes verification') {
-            steps {
-                echo "*** executing ***"
-                sh "kubectl"
-            }
-        }
         stage("verification de kubectl") {
             steps {
                 withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
@@ -38,7 +32,6 @@ pipeline {
                 }
             }
         }
-        stages {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
@@ -80,5 +73,5 @@ pipeline {
                 }
             }
         }*/
-    }
+    
 }
