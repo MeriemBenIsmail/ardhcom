@@ -28,7 +28,6 @@ pipeline {
             steps {
                 echo "*** executing ***"
                 sh "kubectl"
-                sh "kubectl get nodes"
             }
         }
         stage('creationg des pods') {
