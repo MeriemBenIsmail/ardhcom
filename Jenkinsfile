@@ -38,9 +38,9 @@ pipeline {
                         withCredentials([file(credentialsId: 'kube_credentials', variable: 'KUBECONFIG')]) {
                             echo "======== executing ========"
                             try {
-                                sh "kubectl cluster-info --kubeconfig=\$KUBECONFIG"
-                                sh "kubectl --kubeconfig=\$KUBECONFIG version"
-                                sh "kubectl --kubeconfig=\$KUBECONFIG apply -f deployment.yaml"
+                                sh "kubectl cluster-info"
+                                sh "kubectl version"
+                                sh "kubectl apply -f deployment.yaml"
                             } catch (Exception e) {
                                 error "Error executing kubectl command: ${e.getMessage()}"
                             }
