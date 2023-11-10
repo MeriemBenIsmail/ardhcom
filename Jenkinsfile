@@ -52,7 +52,7 @@ pipeline {
         stage('creation des services') {
             steps {
                 script {
-                    def kubeConfigPath = "C:\\Users\\meriem\\.kube\\config"
+                        def kubeConfigPath = "C:\\Users\\meriem\\.kube\\config"
                         env.KUBECONFIG = kubeConfigPath
                         echo "KUBECONFIG path: \$KUBECONFIG"
                         
@@ -67,8 +67,29 @@ pipeline {
                 }
             }
         }
+
+        stage('creation des loadbalancer') {
+            steps {
+                script {
+                    def kubeConfigPath = "C:\\Users\\meriem\\.kube\\config"
+                    env.KUBECONFIG = kubeConfigPath
+                    echo "KUBECONFIG path: \$KUBECONFIG"
+                    
+                    try {
+                            echo "*** executing ***"
+                            sh "kubectl apply -f loadBalancer.yaml"
+                            sh "kubectl get services"
+                    } catch (Exception e) {
+                            error "Error executing kubectl command: ${e.getMessage()}"
+                    }
+                       
+                    
+                }
+            }
+        }
     }
       
       
+        
     
 }
