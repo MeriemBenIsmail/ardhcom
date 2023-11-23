@@ -35,7 +35,7 @@ resource "kubernetes_deployment" "deployment" {
 
 resource "kubernetes_service" "service" {
   metadata {
-    name = "service-ardhcom-ext"
+    name = "service-ardhcom-deployed"
   }
 
   spec {
