@@ -90,6 +90,7 @@ pipeline {
             steps {
                 script {
                     dir('terraform') {
+                        sh 'terraform destroy -auto-approve -var="image_tag=latest"'
                         sh 'terraform init'
                         sh 'terraform apply -auto-approve -var="image_tag=latest"'
                     }
