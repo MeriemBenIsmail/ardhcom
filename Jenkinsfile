@@ -91,7 +91,7 @@ pipeline {
                 script {
                     dir('terraform') {
                         sh 'terraform init'
-                        sh 'terraform apply -var="image_tag=latest"'
+                        sh 'terraform apply -auto-approve -var="image_tag=latest"'
                     }
                 }
             }
