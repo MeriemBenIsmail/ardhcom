@@ -67,7 +67,6 @@ pipeline {
                 }
             }
         }
-
         stage('creation des loadbalancer') {
             steps {
                 script {
@@ -87,6 +86,17 @@ pipeline {
                 }
             }
         }
+        stage('Infrastructure as Code with Terraform') {
+            steps {
+                script {
+                    dir('terraform') {
+                        sh 'terraform init'
+                        sh 'terraform apply -var="image_tag=latest"'
+                    }
+                }
+            }
+        }
+
     }
       
       
