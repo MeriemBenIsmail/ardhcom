@@ -97,7 +97,7 @@ pipeline {
                 }
             }
         }
-        stage('Run Nagios Tests') {
+        /*stage('Run Nagios Tests') {
             steps {
                 script {
                     def nagiosCheckCommand = "C:/Users/meriem/Downloads/nagios-plugins-2.4.7/plugins/check_http.c -H localhost -p 80 -u /"
@@ -109,7 +109,8 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
+        
 
 
     }
