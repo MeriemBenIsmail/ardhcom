@@ -96,6 +96,14 @@ pipeline {
                 }
             }
         }
+        stage('Run Nagios Tests') {
+            steps {
+                script {
+                    sh "C:/Users/meriem/Downloads/nagios-plugins-2.4.7.tar.gz --arguments"
+                }
+            }
+}
+
 
     }
       
