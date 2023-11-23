@@ -100,8 +100,7 @@ pipeline {
         stage('Run Nagios Tests') {
             steps {
                 script {
-                    sh " --arguments"
-                    def nagiosCheckCommand = "C:\Users\meriem\Downloads\nagios-plugins-2.4.7\plugins\check_http.c -H localhost -p 80 -u /"
+                    def nagiosCheckCommand = "C:/Users/meriem/Downloads/nagios-plugins-2.4.7/plugins/check_http.c -H localhost -p 80 -u /"
                     def nagiosExitCode = sh(script: nagiosCheckCommand, returnStatus: true)
                     if (nagiosExitCode == 0) {
                     echo "Nagios check passed. Deployed Application is healthy."
@@ -110,7 +109,7 @@ pipeline {
                     }
                 }
             }
-}
+        }
 
 
     }
