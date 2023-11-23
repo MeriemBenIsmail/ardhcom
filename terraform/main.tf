@@ -1,5 +1,5 @@
 provider "kubernetes" {
-  config_path = "C:\\Users\\meriem\\.kube\\config" 
+  config_path = "C:\\Users\\meriem\\.kube\\config"
 }
 
 resource "kubernetes_deployment" "deployment" {
@@ -25,10 +25,30 @@ resource "kubernetes_deployment" "deployment" {
 
       spec {
         container {
-          image = "meriem1219/ardhcom"  
+          image = "meriem1219/ardhcom"
           name  = "ardhcom-container"
         }
       }
     }
+  }
+}
+
+resource "kubernetes_service" "service" {
+  metadata {
+    name = "service-ardhcom-external"
+  }
+
+  spec {
+    selector = {
+      app = "ardhcom"
+    }
+
+    port {
+      protocol    = "TCP"
+      port        = 80
+      target_port = 80
+    }
+
+    type = "LoadBalancer"
   }
 }
