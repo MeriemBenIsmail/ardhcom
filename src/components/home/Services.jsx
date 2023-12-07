@@ -7,6 +7,7 @@ import two from "../../assets/rre.jpg";
 import three from "../../assets/batata.jpg";
 import four from "../../assets/bagra.jpg";
 import deco from "../../assets/fgf.png";
+
 export default function Services() {
   return (
     <div className={classes.service} id="services">
