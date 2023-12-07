@@ -31,61 +31,8 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to Kubernetes') {
-                steps {
-                    script {
-                        def kubeConfigPath = "C:\\Users\\meriem\\.kube\\config"
-                        env.KUBECONFIG = kubeConfigPath
-                        echo "KUBECONFIG path: \$KUBECONFIG"
-                        
-                        try {
-                            sh "kubectl version"
-                            sh "kubectl apply -f deployment.yaml"  
-                        } catch (Exception e) {
-                            error "Error executing kubectl command: ${e.getMessage()}"
-                        }
-                    }
-
-                }
-        }
-        stage('creation des services') {
-            steps {
-                script {
-                        def kubeConfigPath = "C:\\Users\\meriem\\.kube\\config"
-                        env.KUBECONFIG = kubeConfigPath
-                        echo "KUBECONFIG path: \$KUBECONFIG"
-                        
-                        try {
-                             echo "*** executing ***"
-                             sh "kubectl apply -f service.yaml"
-                             sh "kubectl get services"
-                        } catch (Exception e) {
-                            error "Error executing kubectl command: ${e.getMessage()}"
-                        }
-                   
-                }
-            }
-        }
-        stage('creation des loadbalancer') {
-            steps {
-                script {
-                    def kubeConfigPath = "C:\\Users\\meriem\\.kube\\config"
-                    env.KUBECONFIG = kubeConfigPath
-                    echo "KUBECONFIG path: \$KUBECONFIG"
-                    
-                    try {
-                            echo "*** executing ***"
-                            sh "kubectl apply -f loadBalancer.yaml"
-                            sh "kubectl get services"
-                    } catch (Exception e) {
-                            error "Error executing kubectl command: ${e.getMessage()}"
-                    }
-                       
-                    
-                }
-            }
-        }
-        stage('Infrastructure as Code with Terraform') {
+      
+        stage('Infrastructure as Code with Terraform & Kubernetes as Provider') {
             steps {
                 script {
                     dir('terraform') {
@@ -96,25 +43,5 @@ pipeline {
                 }
             }
         }
-        /*stage('Run Nagios Tests') {
-            steps {
-                script {
-                    def nagiosCheckCommand = "C:/Users/meriem/Downloads/nagios-plugins-2.4.7/plugins/check_http.c -H localhost -p 80 -u /"
-                    def nagiosExitCode = sh(script: nagiosCheckCommand, returnStatus: true)
-                    if (nagiosExitCode == 0) {
-                    echo "Nagios check passed. Deployed Application is healthy."
-                    } else {
-                    error "Nagios check failed. Deployed Application is not healthy."
-                    }
-                }
-            }
-        }*/
-        
-
-
     }
-      
-      
-        
-    
 }
