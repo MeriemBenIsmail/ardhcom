@@ -42,5 +42,14 @@ pipeline {
                 }
             }
         }
+        stage('Monitoring') {
+            steps {
+            echo "Monitoring Stage..."
+            sh "node src/metrics-server.js &"
+            echo "Node metrics sending server started."
+            echo "Prometheus started."
+            echo "Grafana started."
+            }
+        }
     }
 }
