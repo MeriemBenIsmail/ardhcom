@@ -31,7 +31,6 @@ pipeline {
                 }
             }
         }
-      
         stage('Infrastructure as Code with Terraform & Kubernetes as Provider') {
             steps {
                 script {
